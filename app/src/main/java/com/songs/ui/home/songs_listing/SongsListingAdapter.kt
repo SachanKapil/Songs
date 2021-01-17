@@ -50,19 +50,25 @@ class SongsListingAdapter(private val listener: SongsListingAdapterListener) :
     inner class ViewHolderSong(val binding: LayoutSongItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(songDetailItem: SongDetailItem) {
-            ViewUtils.loadGif(
-                binding.ivGif,
+            ViewUtils.loadImage(
+                binding.ivImage,
                 binding.pbLoading,
                 R.drawable.bg_grey_side_rounded_rectangle,
-                songDetailItem.artworkUrl100 ?: ""
+                songDetailItem.artworkUrl100 ?: "",
+                8,
+                true
             )
             binding.root.setOnClickListener {
                 listener.onSongItemClick(songDetailItem)
+            }
+            binding.btnPlay.setOnClickListener {
+                songDetailItem.previewUrl?.let { listener.onPlayClick(it) }
             }
         }
     }
 
     interface SongsListingAdapterListener {
         fun onSongItemClick(songDetailItem: SongDetailItem)
+        fun onPlayClick(url: String)
     }
 }

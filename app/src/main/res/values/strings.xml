@@ -11,6 +11,11 @@
     <!--Titles-->
     <string name="title_songs_list">Songs List</string>
     <string name="title_song_detail">Song Detail</string>
+    <string name="action_play">Play</string>
+    <string name="title_artist_name">Artist Name</string>
+    <string name="title_collection_name">Collection Name</string>
+    <string name="title_track_name">Track Name</string>
+    <string name="message_invalid_song_url">Invalid song url</string>
 
     <!--Text-->
 </resources>

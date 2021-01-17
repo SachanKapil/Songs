@@ -7,6 +7,7 @@ package com.songs.constants
 object AppConstants {
 
     object BundleConstants {
+        const val KEY_DATA = "key_data"
         const val KEY_SONG_DETAIL = "key_song_detail"
     }
 

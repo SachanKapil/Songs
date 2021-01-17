@@ -3,25 +3,48 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="vertical">
 
-        <com.songs.custom_works.SquareImageView
-            android:id="@+id/iv_gif"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.songs.custom_works.SquareImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bg_grey_side_rounded_rectangle"
+                tools:ignore="ContentDescription" />
+
+            <ProgressBar
+                android:id="@+id/pb_loading"
+                style="@style/LoadingProgressBarStyle"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@color/placeholder_grey"
-            tools:ignore="ContentDescription" />
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:background="@drawable/bg_grey_side_rounded_rectangle"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/dm_sans_bold"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:text="@string/action_play"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:visibility="visible" />
 
-        <ProgressBar
-            android:id="@+id/pb_loading"
-            style="@style/LoadingProgressBarStyle"
-            android:layout_width="@dimen/_12sdp"
-            android:layout_height="@dimen/_12sdp"
-            android:layout_gravity="center"
-            android:visibility="gone" />
-
-    </FrameLayout>
+    </LinearLayout>
 
 </layout>

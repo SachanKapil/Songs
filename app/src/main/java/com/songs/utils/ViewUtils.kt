@@ -1,12 +1,14 @@
 package com.songs.utils
 
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.gif.GifDrawable
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
@@ -16,20 +18,22 @@ import com.bumptech.glide.request.target.Target
 
 object ViewUtils {
 
-    fun loadGif(
+    fun loadImage(
         ivImage: ImageView,
         pbLoader: ProgressBar?,
         placeholderResourceId: Int?,
-        imageUrl: String
+        imageUrl: String,
+        cornerRadiusInDP: Int,
+        isCenterCrop: Boolean,
     ) {
 
-        var requestBuilder = Glide.with(ivImage.context).asGif().load(imageUrl)
+        var requestBuilder = Glide.with(ivImage.context).load(imageUrl)
         pbLoader?.visibility = View.VISIBLE
-        requestBuilder = requestBuilder.listener(object : RequestListener<GifDrawable?> {
+        requestBuilder = requestBuilder.listener(object : RequestListener<Drawable?> {
             override fun onLoadFailed(
                 e: GlideException?,
                 model: Any,
-                target: Target<GifDrawable?>,
+                target: Target<Drawable?>,
                 isFirstResource: Boolean
             ): Boolean {
                 pbLoader?.visibility = View.GONE
@@ -37,9 +41,9 @@ object ViewUtils {
             }
 
             override fun onResourceReady(
-                resource: GifDrawable?,
+                resource: Drawable?,
                 model: Any,
-                target: Target<GifDrawable?>,
+                target: Target<Drawable?>,
                 dataSource: DataSource,
                 isFirstResource: Boolean
             ): Boolean {
@@ -50,6 +54,21 @@ object ViewUtils {
 
         placeholderResourceId?.let {
             requestBuilder.placeholder(placeholderResourceId)
+        }
+
+        requestBuilder = if (isCenterCrop) {
+            requestBuilder.transform(
+                CenterCrop(),
+                RoundedCorners(
+                    AppUtils.convertDpToPixel(cornerRadiusInDP.toFloat(), ivImage.context).toInt()
+                )
+            )
+        } else {
+            requestBuilder.transform(
+                RoundedCorners(
+                    AppUtils.convertDpToPixel(cornerRadiusInDP.toFloat(), ivImage.context).toInt()
+                )
+            )
         }
 
         requestBuilder.into(ivImage)

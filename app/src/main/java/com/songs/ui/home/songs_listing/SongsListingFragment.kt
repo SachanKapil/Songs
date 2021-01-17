@@ -162,7 +162,12 @@ class SongsListingFragment : BaseFragment<FragmentSongsListingBinding>(),
         host.openSongDetailFragment(songDetailItem)
     }
 
+    override fun onPlayClick(url: String) {
+        host.openPlayerActivity(url)
+    }
+
     interface ISongsListingFragmentHost {
         fun openSongDetailFragment(songDetailItem: SongDetailItem)
+        fun openPlayerActivity(url: String)
     }
 }

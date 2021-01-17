@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--Ripple Colors-->
+    <color name="ripple_light_black">#1f000000</color>
+    <color name="ripple_light_white">#55ffffff</color>
+
     <!--Common Colors-->
     <color name="placeholder_grey">#D8D8D8</color>
 
@@ -9,4 +14,11 @@
     <color name="blue">#3A559F</color>
     <color name="grey">#DBDBDB</color>
     <color name="black">#000000</color>
+
+    <!--    ExoPlayer Controller Colours-->
+    <color name="clr_exo_background">#80000000</color>
+    <color name="clr_exo_remaining_duration">#CBCDC8</color>
+    <color name="clr_exo_un_played_color">#45424E</color>
+    <color name="clr_exo_buffered_color">#95989F</color>
+    <color name="clr_exo_played_color">#FC6E20</color>
 </resources>
