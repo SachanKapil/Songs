@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Common Colors-->
+    <color name="placeholder_grey">#D8D8D8</color>
+
+    <!--App UI Colors-->
+    <color name="white">#FFFFFF</color>
+    <color name="orange">#FC6E20</color>
+    <color name="blue">#3A559F</color>
+    <color name="grey">#DBDBDB</color>
+    <color name="black">#000000</color>
+</resources>

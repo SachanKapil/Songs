@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Songs</string>
+
+    <!--    All No Data Fount Messages-->
+    <string name="message_no_internet_connection">No Internet Connection</string>
+    <string name="message_no_data_found">No Data Found</string>
+
+    <!--Actions-->
+    <string name="action_try_again">Try Again</string>
+
+    <!--Titles-->
+    <string name="title_songs_list">Songs List</string>
+    <string name="title_song_detail">Song Detail</string>
+
+    <!--Text-->
+</resources>
